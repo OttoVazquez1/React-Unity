@@ -1,6 +1,7 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
+import CartWidget from '../CartWidget/CartWidget'
 
 function NavBar() {
   return (
@@ -15,7 +16,7 @@ function NavBar() {
       </Nav>
     </Navbar.Collapse>
     <Nav.Link href='#home'>
-        <img className='w-25' src='https://w7.pngwing.com/pngs/225/984/png-transparent-computer-icons-shopping-cart-encapsulated-postscript-shopping-cart-angle-black-shopping.png' alt="Carrito" />
+      <CartWidget />
     </Nav.Link>
   </Container>
 </Navbar>
