@@ -4,6 +4,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.css';
+import ItemCount from './components/ItemCount/ItemCount';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <NavBar />
         <ItemListContainer />
         <img src={logo} className="App-logo" alt="logo" />
+        <ItemCount/>
     </div>
   );
 }
