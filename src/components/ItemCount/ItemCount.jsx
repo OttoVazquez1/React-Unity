@@ -12,12 +12,12 @@ function ItemCount() {
         }
     }
     return (
-    <div className='row w-25'>
+    <div className='row w-25' style={{border: '1px solid white'}}>
         <div className='col'>
             <button onClick={AddCount}>+</button>
         </div>
         <div className='col'>
-            <h1 className='h2'>{count}</h1>
+            <h1 className='h2' style={{color: 'white'}}>{count}</h1>
         </div>
         <div className='col'>
             <button onClick={RemoveCount}>-</button>

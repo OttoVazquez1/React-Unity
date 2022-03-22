@@ -10,7 +10,7 @@ import ItemCount from './components/ItemCount/ItemCount';
 function App() {
   
   const [count, setCount] = useState(0)
-  const bgcBlue = { backgroundColor: 'blue' }
+  const bgcBlue = { backgroundColor: 'grey' }
   
   return (
     <div className="App" style={ bgcBlue }>
