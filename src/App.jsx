@@ -9,15 +9,13 @@ import ItemCount from './components/ItemCount/ItemCount';
 
 function App() {
   
-  const [count, setCount] = useState(0)
   const bgcBlue = { backgroundColor: 'grey' }
   
   return (
     <div className="App" style={ bgcBlue }>
         <NavBar />
         <ItemListContainer />
-        <img src={logo} className="App-logo" alt="logo" />
-        <ItemCount/>
+    
     </div>
   );
 }

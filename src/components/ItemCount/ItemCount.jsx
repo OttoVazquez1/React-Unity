@@ -12,15 +12,17 @@ function ItemCount() {
         }
     }
     return (
-    <div className='row w-25' style={{border: '1px solid white'}}>
-        <div className='col'>
-            <button onClick={AddCount}>+</button>
-        </div>
-        <div className='col'>
-            <h1 className='h2' style={{color: 'white'}}>{count}</h1>
-        </div>
-        <div className='col'>
-            <button onClick={RemoveCount}>-</button>
+    <div className="container">
+        <div className='row' style={{border: '1px solid white'}}>
+            <div className='col-2'>
+                <button onClick={RemoveCount}>-</button>
+            </div>
+            <div className='col-8'>
+                <h1 className='h2' style={{color: 'black'}}>{count}</h1>
+            </div>
+            <div className='col-2'>
+                <button onClick={AddCount}>+</button>
+            </div>
         </div>
     </div>
   )
