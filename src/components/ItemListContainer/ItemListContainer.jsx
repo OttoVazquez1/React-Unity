@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getFetch } from '../../helpers/getFetch'
-import ItemCount from '../ItemCount/ItemCount'
+import Item from '../Item/Item'
+
 
 
 function ItemListContainer() {
@@ -20,24 +21,16 @@ function ItemListContainer() {
         { loading ? 
           <h2>Cargando..</h2>
         :
-          productos.map((producto)=> <div key={producto.id} className='row  row-cols-lg-expand justify-content-center'>
-                              <div className="card mt-5 col" >
-                                  <div className="card-header">
-                                    <p className="fw-bold h3">{`${producto.name}`}</p> 
-                                  </div>
-                                  <div className="card-body">
-                                    <img src={producto.foto} alt='Foto de producto' className='w-50' />
-                                        <p className='fst-italic'>${producto.price}ARS</p>                                                            
-                                  </div>
-                                  <div className='card-footer'>
-                                      <ItemCount /><br />
-                                      <button className="btn btn-outline-primary btn-block">Comprar</button>
-                                  </div>
-                              </div>
-                            </div>
-        )}
+          productos.map((producto)=> {
+            return(
+              <div key={producto.id}>
+                <Item name={producto.name} foto={producto.foto} price={producto.price} stock={producto.stock} id={producto.id} />
+              </div>
+            )
+          } 
+          )
+        }
     </div>
   )
-}
-
+      }
 export default ItemListContainer
