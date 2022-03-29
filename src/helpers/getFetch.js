@@ -17,3 +17,18 @@ export const productos = [
           reject('400 Not Found')
       }
   })
+
+  const producto =  { id: '1', categoria: 'tees', name: 'Reflective Smile Tee', price: 2500, foto: 'https://imgv2.staticdj.com/836b5c6e84adc38b0317d73760a642d8_1080x.jpg', stock: 10}
+
+  export const getFetchOne = new Promise(( resolve, reject )=>{
+    
+    let condition=true
+    if (condition) {
+        setTimeout(()=>{ 
+            resolve(producto)
+         }, 3000)
+    } else {
+        reject('400 not found')
+        
+    }
+})
