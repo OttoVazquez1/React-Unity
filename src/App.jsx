@@ -15,8 +15,8 @@ function App() {
   return (
     <div className="App" style={ bgcBlue }>
         <NavBar />
-        <ItemListContainer />
         <ItemDetailContainer />
+        <ItemListContainer />
     </div>
   );
 }
