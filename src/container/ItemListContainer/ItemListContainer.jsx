@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getFetch } from '../../helpers/getFetch'
 import Item from '../../components/Item/Item'
+import { useParams } from 'react-router-dom'
 
 
 
@@ -8,13 +9,25 @@ function ItemListContainer() {
 
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
+
+  const { categoriaId } = useParams()
   
   useEffect(()=> {  
-          getFetch
-          .then(resp => setProductos(resp) )
-          .catch(err => console.log(err) )
-          .finally(() => setLoading(false))
-  },[])
+          if (categoriaId) {
+            getFetch
+            .then(resp => setProductos(resp.filter(item => item.categoria === categoriaId)))
+            .catch(err => console.log(err) )
+            .finally(() => setLoading(false))
+            
+          } else {
+            getFetch
+            .then(resp => setProductos(resp))
+            .catch(err => console.log(err) )
+            .finally(() => setLoading(false))
+            
+          }
+    
+  },[categoriaId])
  
 
   return (

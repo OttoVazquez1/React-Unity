@@ -1,10 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount.jsx';
 
 const Item = ({name, price, id, stock, foto}) => {
-    const onAdd = (cantidad) => {
-        alert(`Has agregado ${cantidad} ${name} al carrito!`);
-    };
+   
 
     return (
         <div className='row  row-cols-lg-expand justify-content-center'>
@@ -17,7 +16,12 @@ const Item = ({name, price, id, stock, foto}) => {
                                         <p className='fst-italic'>${price}ARS</p>                                                            
                                   </div>
                                   <div className='card-footer'>
-                                      <ItemCount stock={stock} onAdd={onAdd} inicial={1} />
+                                      
+                                      <Link to={`detalle/${id}`}>
+                                          <button className='btn btn-outline-primary btn-block'>
+                                                Ir al detalle
+                                          </button>
+                                      </Link>
                                   </div>
                               </div>
                             </div>
