@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Intercambiabilidad from '../Intercambiabilidad/Intercambiabilidad';
 import '../ItemCount/ItemCount.css'
 
 const ItemCount = ({inicial, stock, onAdd}) => {
@@ -27,14 +28,7 @@ const ItemCount = ({inicial, stock, onAdd}) => {
           +
         </button>
       </div>
-
-      <button
-        className="button-primary"
-        onClick={() => onAdd(cantidad)}
-        disabled={stock === 0 ? true : null}
-      >
-        Añadir
-      </button>
+        <Intercambiabilidad onAdd={onAdd} cantidad={cantidad} stock={stock}/>
     </div>
     )
 }
