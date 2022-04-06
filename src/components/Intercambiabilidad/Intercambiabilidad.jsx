@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 const InputCount =  () => {
     return (
-    <>
+    <Row>
         <Link to='/cart'>
             <button
             className='btn btn-outline-primary'
@@ -13,23 +14,23 @@ const InputCount =  () => {
             className='btn btn-outline-primary'
             onClick={() => console.log('Ir al home')}>Seguir comprando</button>
         </Link>
-    </>   
+    </Row>   
     )
 }
 
-const ButtonCount= ({handleInter, onAdd, cantidad, stock})=> {
+const ButtonCount= ({handleInter, onAdd, qty, stock, id, producto})=> {
     return (
         <div onClick={handleInter}>
             <button
                 className="btn btn-outline-primary"
-                onClick={() => onAdd(cantidad)}
+                onClick={() => onAdd(qty, producto, id)}
                 disabled={stock === 0 ? true : null}
             >Agregar Al carrito</button>
         </div>
     )
 }
 
-function Intercambiabilidad({onAdd, cantidad, stock}) {
+function Intercambiabilidad({onAdd, qty, stock, producto, id}) {
     
     const [inputType, setInputType] = useState('button')
 
@@ -41,7 +42,7 @@ function Intercambiabilidad({onAdd, cantidad, stock}) {
     <>
         {
             inputType === 'button' ?
-                <ButtonCount handleInter={handleInter} onAdd={onAdd} cantidad={cantidad} stock={stock} />
+                <ButtonCount handleInter={handleInter} onAdd={onAdd} qty={qty} stock={stock} producto={producto} id={id} />
             
             :
             <InputCount />
