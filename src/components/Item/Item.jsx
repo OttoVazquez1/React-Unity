@@ -13,7 +13,7 @@ const Item = ({name, price, id, stock, foto}) => {
                                   </div>
                                   <div className="card-body">
                                     <img src={foto} alt='Foto de producto' className='w-50' />
-                                        <p className='fst-italic'>${price}ARS</p>                                                            
+                                        <p className='fst-italic'>${price} ARS</p>                                                            
                                   </div>
                                   <div className='card-footer'>
                                       

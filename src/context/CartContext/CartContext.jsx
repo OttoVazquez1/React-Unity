@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 
 
@@ -46,6 +46,12 @@ function CartContextProvider({children}){
             setCart([...cart, newItem]) 
         }
     }
+
+    const eliminateFromCart = (id) => {
+        const newCart = cart.filter(producto => producto.id =! id)
+        
+        setCart(newCart)
+    }
     
     const RemoveCart = () => {
         setCart([])
@@ -54,9 +60,9 @@ function CartContextProvider({children}){
     return (
         <CartContext.Provider value={{
             cart,
-            
             addToCart,
             RemoveCart,
+            eliminateFromCart
             
         }}>
             {children}
