@@ -2,6 +2,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import { NavLink } from 'react-router-dom'
+import CartWidget from '../CartWidget/CartWidget'
 
 
 
@@ -18,7 +19,7 @@ function NavBar() {
       </Nav>
     </Navbar.Collapse>
     <NavLink to='/cart'>
-      <img src="https://img2.freepng.es/20171217/337/shopping-cart-png-5a364b75338266.010470061513507701211.jpg" alt="Carrito" className='w-10' />
+      <CartWidget/>
     </NavLink>
   </Container>
 </Navbar>

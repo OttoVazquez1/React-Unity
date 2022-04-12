@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 
 
@@ -8,13 +8,20 @@ export const useCartContext = () => useContext(CartContext)
 
 function CartContextProvider({children}){
     const [cart, setCart] = useState([])
-  
+    const [quantity, setQuantity] = useState(0)
+    const [total, setTotal] = useState()
+
+    useEffect(() => {
+        var t = 0
+        const totals = cart.map( p => p.price * p.cantidad)
+        totals.map( p => t = t + p)
+        setTotal(t)
+        const cartQuantity = cart.length
+        setQuantity(cartQuantity)
+    }, [cart])
+    
     
 
-    
-    
-    
-    
     function isInCart(id){
 
         let result = cart.find(p => p.id === id )
@@ -60,6 +67,8 @@ function CartContextProvider({children}){
     return (
         <CartContext.Provider value={{
             cart,
+            quantity,
+            total,
             addToCart,
             RemoveCart,
             eliminateFromCart

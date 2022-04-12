@@ -18,7 +18,7 @@ function RoutesApp() {
                     />} 
                 /> 
                 <Route 
-                    path='/categoria/:categoriaId' 
+                    path='/categoria/:categoriaId/' 
                     element={<ItemListContainer
                     />} 
                 /> 
