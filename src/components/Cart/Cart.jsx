@@ -1,5 +1,5 @@
 import './Cart.css'
-import React, { useState } from 'react'
+import React from 'react'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { Button, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'

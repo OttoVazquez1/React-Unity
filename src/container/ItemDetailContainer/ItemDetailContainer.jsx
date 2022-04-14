@@ -1,14 +1,17 @@
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
-import { getFetch } from "../../helpers/getFetch"
+//import { getFetch } from "../../helpers/getFetch"
 
 function ItemDetailContainer() {
-    const [producto, setProducto] = useState({})
+    const [producto, setProducto] = useState([])
     const [loading, setLoading] = useState(true)
     const { detalleId } = useParams()
 
-    useEffect(()=> {  
+
+    //useEffect para recibir productos via js
+    /* useEffect(()=> {  
         
       if (detalleId) {
         getFetch
@@ -23,7 +26,31 @@ function ItemDetailContainer() {
         .finally(() => setLoading(false))
       }
       
-},[detalleId])
+    },[detalleId]) */
+    
+
+    //Firebase
+    
+    
+    useEffect(()=>{
+      const querydb = getFirestore()
+      const item = doc(querydb, 'productos', detalleId)
+      if(detalleId){
+        
+        getDoc(item)
+        .then(resp => setProducto({ id: resp.id, ...resp.data() }))
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
+
+      }else{
+        
+        getDoc(item)
+        .then(resp => setProducto({ id: resp.id, ...resp.data() }))
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
+        
+      }
+    }, [detalleId])
 
   return (
     <>
