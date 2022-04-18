@@ -17,7 +17,7 @@ const Item = ({name, price, id, stock, foto}) => {
                                   </div>
                                   <div className='card-footer'>
                                       
-                                      <Link to={`detalle/${id}`}>
+                                      <Link to={`/detalle/${id}`}>
                                           <button className='btn btn-outline-primary btn-block'>
                                                 Ir al detalle
                                           </button>

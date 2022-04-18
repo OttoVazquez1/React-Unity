@@ -14,8 +14,8 @@ function ItemDetail({ producto }) {
     <div>
       <ul>
         {
-          producto.descripcion.map((item)=> {
-            return <li key={Number.toString()}>{item}</li>
+          producto.descripcion.map((item, i)=> {
+            return <li key={i}>{item}</li>
           })
         }
       </ul>

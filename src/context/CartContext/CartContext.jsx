@@ -55,9 +55,12 @@ function CartContextProvider({children}){
     }
 
     const eliminateFromCart = (id) => {
-        const newCart = cart.filter(producto => producto.id =! id)
+        const newCart = [...cart];
+        let index = newCart.findIndex(el => el.id === id);
         
-        setCart(newCart)
+        newCart.splice( index, 1 );
+
+        setCart([...newCart]);
     }
     
     const RemoveCart = () => {
