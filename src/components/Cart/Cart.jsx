@@ -11,7 +11,7 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore'
 
 function Cart() {
   //Traigo cart, removeCart y total del cartContext
-  const { cart, RemoveCart, total} = useCartContext()
+  const { cart, RemoveCart, total, eliminateFromCart} = useCartContext()
   //Estado para mostrar formulario
   const [openPay, setOpenPay] = useState(false)
   // Estados para guardar informacion del formulario
@@ -60,7 +60,7 @@ function Cart() {
                   <Col lg={2} xs={2}> <h2 className='fst-italic h5 mt-4'>{prod.name}</h2> </Col>
                   <Col lg={2} xs={2}> <h2 className='fst-italic h5 mt-4'> {prod.cantidad} </h2> </Col>
                   <Col lg={2} xs={2}> <h4 className='fst-italic h5 mt-4'> ${prod.price*prod.cantidad} ARS </h4> </Col>
-                  <Col lg={2} xs={2}> <button className='btn btn-outline-danger mt-4' >X</button></Col>
+                  <Col lg={2} xs={2}> <button className='btn btn-outline-danger mt-4' onClick={eliminateFromCart} >X</button></Col>
           </Row>
                 )}
           <Row>
