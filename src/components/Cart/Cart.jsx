@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { useCartContext } from '../../context/CartContext/CartContext'
-import { FloatingLabel, Form, Row } from 'react-bootstrap'
+import { Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import CartItem from '../CartItem/CartItem'
