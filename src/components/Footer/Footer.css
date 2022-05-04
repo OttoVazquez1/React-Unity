@@ -1,0 +1,23 @@
+footer {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1.5px;
+    padding: 30px 10px;
+    margin-top: 60px;
+    background-color: #1E1E24;;
+    color: white;
+    height: 15vh;
+  }
+  
+  footer p {
+    margin: 0 auto;
+  }
+  
+
+  .footer__end{
+    position:absolute;
+   bottom:0;
+   width:100%;
+  }

@@ -2,6 +2,7 @@ import { doc, getDoc, getFirestore } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
+import './ItemDetailContainer.css'
 //import { getFetch } from "../../helpers/getFetch"
 
 function ItemDetailContainer() {
@@ -55,7 +56,16 @@ function ItemDetailContainer() {
   return (
     <>
     {   loading ? 
-    <></>
+    
+    <div className="cargando__idc">
+
+    <div class="balls">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <h2 className="cargando__idc-text">Cargando tu producto!</h2>
+    </div>
     :
     
         

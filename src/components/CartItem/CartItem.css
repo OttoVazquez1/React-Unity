@@ -1,0 +1,12 @@
+.w-10 {
+    width: 75px;
+    border-radius: 5px;
+}
+
+.row__cart{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    border-bottom: 1px ridge black;
+    margin-bottom: 1vh;
+}

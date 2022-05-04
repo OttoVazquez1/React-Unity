@@ -1,10 +1,11 @@
-import './Cart.css'
+
 import React, { useState } from 'react'
 import { useCartContext } from '../../context/CartContext/CartContext'
-import { Button, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
+import { FloatingLabel, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
-//import firebase from  'firebase/app'
+import CartItem from '../CartItem/CartItem'
+import './Cart.css'
 
 
 
@@ -42,49 +43,48 @@ function Cart() {
   }  
   
   
-  
+  console.log(cart)
   return (
     <div className='container mt-3'>
       {cart.length === 0 ?
-        <div>
+        <div className='cart__noItemsDiv'>
         <h1 className='display-5 fst-italic'>Aún no elegiste tus productos!</h1>
         <Link to={'/'}>
-          <Button variant='dark' className='mt-4'>Vamos al catalogo!</Button>
+          <button className='mt-4 bttn'>Vamos al catalogo!</button>
         </Link>
         </div>
         :
+        
+        
         <> 
+        <div className='cart__title'>
+          <h1>Tu Carrito:</h1>
+        </div>
+        
         {cart.map(prod => 
-        <Row key={prod.id} className='cart__row'>
-                  <Col lg={3} xs={3}><img src={prod.foto} alt="Foto Producto" className='w-10'  /></Col>
-                  <Col lg={2} xs={2}> <h2 className='fst-italic h5 mt-4'>{prod.name}</h2> </Col>
-                  <Col lg={2} xs={2}> <h2 className='fst-italic h5 mt-4'> {prod.cantidad} </h2> </Col>
-                  <Col lg={2} xs={2}> <h4 className='fst-italic h5 mt-4'> ${prod.price*prod.cantidad} ARS </h4> </Col>
-                  <Col lg={2} xs={2}> <button className='btn btn-outline-danger mt-4' onClick={eliminateFromCart} >X</button></Col>
-          </Row>
-                )}
+            
+              <CartItem key={prod.id} prod={prod} eliminateFromCart={eliminateFromCart} />
+            
+              
+          )}
           <Row>
             <h4 className='align-right'>Total: {total}</h4>
           </Row>
-            <button className='btn btn-outline-danger w-25 mt-5' onClick={RemoveCart}>Vaciar Carrito</button>
-            <button className='btn btn-outline-danger w-20 mt-5' onClick={() => {setOpenPay(true)}}>Realizar compra</button>
+            <button className='bttn w-25 mt-5' onClick={RemoveCart}>Vaciar Carrito</button>
+            <button className='bttn w-25 mt-5' onClick={() => {setOpenPay(true)}}>Realizar compra</button>
             
             {openPay &&
-              <Form>
-                <FloatingLabel
-                  className='mb-2 mt-3' 
-                  controlId='cartFormName'
-                  label="Ingresa tu nombre"
-                 >
-                    <Form.Control type='text' placeholder='Lionel Messi' onChange={(e) => setName(e.target.value)} />
-                </FloatingLabel>
-                <FloatingLabel className='mb-2' controlId='cartFormPhone' label="Ingresa tu numero de telefono">
-                    <Form.Control type='text' placeholder='011-5656-5656' onChange={(e) => setPhone(e.target.value)} />
-                </FloatingLabel>
-                <FloatingLabel className='mb-2' controlId='cartFormEmail' label="Ingresa tu correo electronico">
-                    <Form.Control type='email' placeholder='lionelandresmessi@gmail.com' onChange={(e) => setEmail(e.target.value)} />
-                </FloatingLabel>
-                <Button type='submit' onClick={submitOrder}>Enviar!</Button>
+              <Form className='form'>
+                <div>
+                  <input type="text" className='mb-2 mt-3 input' placeholder='Ingresa tu nombre' onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div>
+                  <input type='text'className='mb-2 mt-3 input' placeholder='Ingresa tu numero de telefono' onChange={(e) => setPhone(e.target.value)} />
+                </div>
+                <div>
+                  <input type='email' className='mb-2 mt-3 input' placeholder='Ingresa tu correo electronico' onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <button type='submit' className='bttn' onClick={submitOrder}>Enviar!</button>
               </Form>
             }
             

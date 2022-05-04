@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Item from '../../components/Item/Item'
 import { useParams } from 'react-router-dom'
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import '../ItemListContainer/ItemListContainer.css'
 
 
 function ItemListContainer() {
@@ -85,9 +86,12 @@ function ItemListContainer() {
   }, [categoriaId])
 
   return (
-    <div className='container'>
+    <div className='container container__itemList'>
         { loading ? 
-          <h2>Cargando..</h2>
+          <div className='cargando-ILC'>
+          <div id='cargando-ilc'></div>
+          <p className='fst-italic'>Estamos cargando nuestros productos..</p>
+          </div>
         :
           productos.map((producto)=> {
             return(

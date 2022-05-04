@@ -1,0 +1,43 @@
+.itemDetail{
+    margin-bottom: 24vh;
+    margin-top: 5vh;
+}
+
+.itemDetail__title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+    border-bottom: 0.5px solid #854798;
+    
+}
+
+.itemDetail__properties ul{
+    list-style-type: none;
+    position: relative;
+    right: 1rem;
+    margin-top: 2vh;
+}
+
+.itemDetail__properties h2{
+    letter-spacing: 1.2px;
+}
+
+.itemDetail__properties{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+    margin-top: 3vh;
+}
+
+.itemDetail__properties ul li{
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+    font-size: large;
+    font-style: italic;
+}
+
+.itemDetail__price{
+    margin-top: 6vh;
+    letter-spacing: 1.2px;
+}

@@ -5,6 +5,7 @@ import ItemListContainer from '../container/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from '../container/ItemDetailContainer/ItemDetailContainer'
 import Cart from '../components/Cart/Cart'
 import CartContextProvider from '../context/CartContext/CartContext'
+import Footer from '../components/Footer/Footer'
 
 function RoutesApp() {
   return (
@@ -27,7 +28,7 @@ function RoutesApp() {
                     element={<ItemDetailContainer />}
                 />
                 <Route
-                    path='/cart'
+                    path='/:cart'
                     element={<Cart />}
                 />
                 <Route
@@ -35,6 +36,7 @@ function RoutesApp() {
                     element={<Navigate to='/' replace />}
                 /> 
             </Routes>
+            <Footer />
         </CartContextProvider>
     </BrowserRouter>
   )

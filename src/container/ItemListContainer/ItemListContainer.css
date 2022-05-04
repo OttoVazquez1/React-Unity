@@ -1,0 +1,38 @@
+/* CARGANDO */
+.cargando-ILC{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 15vh;
+  margin-bottom: 35vh;
+}
+
+
+#cargando-ilc {
+  width: 9.5em;
+  height: 10em;
+  border: 5px solid transparent;
+  border-top-color: #854798;
+  border-bottom-color: #854798;
+  border-radius: 50%;
+  animation: spin-stretch 2s ease infinite;
+  margin-top: 5em;
+ /*  margin-bottom: 25em; */
+}
+
+@keyframes spin-stretch {
+  50% {
+    transform: rotate(360deg) scale(0.4, 0.33);
+    border-width: 8px;
+  }
+  100% {
+    transform: rotate(720deg) scale(1, 1);
+    border-width: 3px;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+.container__itemList{
+  margin-top: 5vh;
+}
